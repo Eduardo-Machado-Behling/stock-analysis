@@ -17,7 +17,10 @@ def _sanitize_label(label):
     Returns:
         The sanitized label.
     """
-    return re.sub(r'[^\w\s]', '', label).lower().replace(' ', '_')
+    try:
+        return re.sub(r'[^\w\s]', '', label).lower().replace(' ', '_')
+    except TypeError:
+        return label
 
 
 def label_sanitizer(method):
